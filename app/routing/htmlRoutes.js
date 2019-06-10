@@ -1,7 +1,6 @@
 // Dependencies
 var express = require('express');
 var path = require("path");
-var survey = require('../public/survey.html');
 
 // Exports the variable
 module.exports = function(app) {

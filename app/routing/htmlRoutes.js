@@ -7,11 +7,11 @@ var path = require("path");
 module.exports = function(app) {
     // Sets the route for the home page
     app.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname, '../home.html'));
+        res.sendFile(path.join(__dirname, '../public/home.html'));
     });
 
     // Sets the route for the about page
     app.get('/survey.html', function(req, res) {
-        res.sendFile(path.join(__dirname, '../survey.html'));
+        res.sendFile(path.join(__dirname, '../public/survey.html'));
     });
 }

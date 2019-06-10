@@ -214,9 +214,9 @@
         </footer>
     </div>
     <script type="text/javascript">
-    // Listener for submit button click
+    // On click
     $('#submit').on('click', function(event) {
-    		// prevents the default submit button action
+    	// Fun with 
         event.preventDefault();
         // Set local variables
         var matchFrame = $('.modal-title');
@@ -235,7 +235,7 @@
         var item9 = parseInt($('#item9').val());
         var item10 = parseInt($('#item10').val());
         // Set data to be sent to server
-        var userData = {
+        var userInput = {
             name: name,
             photo: photo,
             scores: [
@@ -261,23 +261,23 @@
             // Grab the URL of the website
             var currentURL = window.location.origin;
             // AJAX post the data to the friends API. 
-            $.post(currentURL + "/api/friends", userData, function(data) {
-            		// If the data has a match, then show this
+            $.post(currentURL + "/api/friends", userInput, function(data) {
+            		// Matched with someone
                 if (data.name !== undefined) {
-                    matchFrame.html('Your match...');
+                    matchFrame.html("You look really similar to somoene I know...");
                     modalBody.html('<p>...is ' + data.name + '!</p><img src="' + data.photo + '" height="200">');
                 } else {
-                	// If no match, show this
-                    matchFrame.html('Not enough data!');
-                    modalBody.html('<p>Unfortunately there is not yet enough user data to match you</p>');
+                	// Didn't match anyone
+                    matchFrame.html("You didn't match with anyone!");
+                    modalBody.html("<p>Get your friends to do this... or you know more TA's!</p>");
                 }
                 // Toggle modal on
                 $('.modal').modal('toggle');
             });
         } else {
-        		// If the form was not valid, this error is shown
-            matchFrame.html('Error...');
-            modalBody.html('Please answer all questions on the form.');
+        		// If you didn't finish the form this shows.
+            matchFrame.html("You did't finish!");
+            modalBody.html("Answer all the questions you lazy bastard.");
             // Toggle modal on
             $('.modal').modal('toggle');
         }

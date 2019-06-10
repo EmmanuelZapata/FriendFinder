@@ -1,4 +1,4 @@
-// Dependencies
+// What is needed
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
@@ -7,9 +7,7 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// For serving of static CSS
-app.use(express.static(__dirname + "/app/css"));
-
+// Set up parser of Json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
